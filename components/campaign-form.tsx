@@ -2,7 +2,6 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Card, CardHeader, CardTitle, CardContent, CardDescription } from '@/components/ui/card';
 import apiClient from '@/lib/api';
@@ -23,17 +22,16 @@ export function CampaignForm({ onCampaignCreated }: { onCampaignCreated: () => v
         brand_name: brandName,
         tone_id: toneId,
       });
-      toast.success('Campaign created!');
-      onCampaignCreated();
-      // Reset form
-      setName('');
-      setBrandName('');
-      setToneId('friendly');
+      toast.success('Campaign created successfully!');
+      
+      // Refresh the page to update the campaign list
+      window.location.reload();
+
     } catch (error) {
       toast.error('Failed to create campaign.');
-    } finally {
-      setLoading(false);
-    }
+      setLoading(false); // Only set loading to false on error
+    } 
+    // No finally block needed, as success causes a page reload
   };
 
   return (
