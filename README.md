@@ -6,7 +6,7 @@ This is a Next.js project bootstrapped with `create-next-app`.
 
 ## Tech Stack
 
-- **Framework**: Next.js 14 with App Router
+- **Framework**: Next.js 15.4.4 with App Router
 - **Language**: TypeScript
 - **UI**: shadcn/ui
 - **Styling**: Tailwind CSS
